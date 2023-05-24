@@ -1,1 +1,6 @@
 node_modules
+build
+public
+bin
+bin/
+obj/
