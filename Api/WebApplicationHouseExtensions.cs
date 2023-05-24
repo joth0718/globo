@@ -19,7 +19,7 @@ public static class WebApplicationHouseExtensions
         {
             if (!MiniValidator.TryValidate(dto, out var errors))
                 return Results.ValidationProblem(errors);
-            var newHouse = repo.Add(dto);
+            var newHouse = await repo.Add(dto);
             return Results.Created($"/house/{newHouse.Id}", newHouse);
         }).Produces<HouseDetailDto>(StatusCodes.Status201Created)
         .ProducesValidationProblem();
